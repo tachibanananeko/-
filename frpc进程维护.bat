@@ -1,11 +1,10 @@
 @echo off
 
-set Program="frpc.exe"  
-tasklist -v | findstr %Program% > NUL  
-if ErrorLevel 1 (  
-  echo %date% %time%  "frpc进程丢失，重启frp服务" >> C:\frp\frp_log\log.txt  
+set Program="frpc.exe"
+tasklist -v | findstr %Program% > NUL
+if ErrorLevel 1 (
+  echo %date% %time%  "frpc杩涚▼涓㈠け锛岄噸鍚痜rp鏈嶅姟" >> C:\frp\frp_log\log.txt
   start /d "C:\frp\frp_0.36.2_windows_386" frpcqd.bat
+  ) else (
+  echo "frp鏈嶅姟姝ｅ湪杩愯"
 )
-if ErrorLevel 0(
-  echo "frp服务正在运行"
-)  
